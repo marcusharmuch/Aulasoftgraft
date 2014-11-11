@@ -3,7 +3,12 @@ package br.com.softgraf.model.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
+import br.com.softgraf.model.bean.Funcionario;
+import br.com.softgraf.util.HibernateUtil;
 
 public class DAOImpl<T> implements DAO<T> {
 
@@ -54,7 +59,46 @@ public class DAOImpl<T> implements DAO<T> {
 		
 		return beans;
 		
+	}
+	
+	public Funcionario getFuncionario(String login, String senha){
+		
+		Session session = HibernateUtil.getSessionfactory().getCurrentSession();
+		session.beginTransaction();
+		
+		return getFuncionarioToCriteria(login, senha);
+	
+				
+	}
+	public Funcionario getFuncionarioToCriteria(String login, String senha)
+	{	
+		
+		Criteria criteria = session.createCriteria(Funcionario.class);
+		criteria.add(Restrictions.eq("login", login));
+		criteria.add(Restrictions.eq("senha", senha));
+		
+		List<Funcionario> lista = (List<Funcionario>)criteria.list();
+
+		for (Funcionario funcionario : lista) {
+			System.out.println("Funcionario encontrado");
+			System.out.println(funcionario.toString());
+		}
+		
+		if (lista == null || lista.size() <= 0){
+			return null;
+			
+		}else {
+			return lista.get(0);
+			
+			
+		}
+		
+		
+		
+		
+		
 		
 	}
+	
 
 }

@@ -24,17 +24,30 @@ public class SoftGrafHelper {
         this.request = request;
     }
     
-    public InterfaceCommand getCommnand(){
+    public InterfaceCommand getCommnand()
+    {
+    	
         String cmd = request.getParameter("cmd");
         System.out.println("Cmd passo = "+ cmd);
-        if (cmd == null) {
-            return new AcessarUsuario();
-        }else if (cmd.equals("iniciarSoftgraf")){                        
-            return new CadastrarFornecedor();
-            
-        }else{
+        if (cmd == null ) {
             return new AcessarUsuario();
         }
+        else if (cmd.equals("iniciarSoftgraf"))
+        {        
+            return new CadastrarFornecedor();
+            
+        }
+        else if(cmd.equals("acessarUsuario")) 
+        {        	
+            return new AcessarUsuario();
+        }else if(cmd.equals("cadastrarFornecedor"))
+        	
+        	return new CadastrarFornecedor();
+    	else{
+        	return new AcessarUsuario();
+        }
+        
+        	
                    
       
     

@@ -59,6 +59,8 @@ public class SoftgrafController extends HttpServlet {
          InterfaceCommand command = softGrafHelper.getCommnand();
          
          String pagina = command.execute(request, response);
+         //String pagina = "SoftgrafController?cmd=iniciarSoftgraf";
+         
          request.getRequestDispatcher(pagina).forward(request, response);
          
          
