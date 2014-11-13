@@ -1,8 +1,13 @@
 package br.com.softgraf.model.helper;
 import br.com.softgraf.model.command.AcessarUsuario;
+import br.com.softgraf.model.command.InicializaFornecedor;
+import br.com.softgraf.model.command.InicializaUnidade;
 import br.com.softgraf.model.command.InterfaceCommand;
+
 import javax.servlet.http.HttpServletRequest;
+
 import  br.com.softgraf.model.command.CadastrarFornecedor;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /*
@@ -34,9 +39,14 @@ public class SoftGrafHelper {
         }
         else if (cmd.equals("iniciarSoftgraf"))
         {        
-            return new CadastrarFornecedor();
+            return new InicializaFornecedor();
             
         }
+        else if (cmd.equals("inicializaUnidade")){
+        	return new InicializaUnidade();
+        	
+        }
+        		
         else if(cmd.equals("acessarUsuario")) 
         {        	
             return new AcessarUsuario();

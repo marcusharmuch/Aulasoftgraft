@@ -18,6 +18,7 @@
 <property name="hibernate.format_sql">true</property>
 <property name="org.hibernate">true</property>
 <mapping class="br.com.softgraf.model.bean.Funcionario"/>
+<mapping class="br.com.softgraf.model.bean.Fornecedor"/>
 </session-factory>
 
 </hibernate-configuration>

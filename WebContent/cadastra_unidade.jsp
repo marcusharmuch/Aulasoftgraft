@@ -6,37 +6,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastro de Fornecedor</title>
+<title>Cadastro de Unidade</title>
 <link rel="stylesheet"  type="text/css" href="principal.css"  />
 </head>
 <body>
 
 <div id="container" >
 <div id="top" >
-<h1>Cadastro de Fornecedor:</h1>
+<h1>Cadastro de Unidade:</h1>
 <h3>${mensagem}</h3>
 </div>
 <div id="leftSide" >
 <fieldset>
-<legend>Fornecedor</legend>
+<legend>Unidade</legend>
 <form action="SoftgrafController" method="post" class="form" >	
-<input type="hidden" name="cmd" value="cadastrarFornecedor"></input>
-<label for="nome">Nome*</label>
+<input type="hidden" name="cmd" value="cadastrarUnidade"></input>
+<label for="nome">Codigo*</label>
 <div class="div_texbox">
-<input type="text" name="nome" id="nome" value="${fornecedor.nome}"/>
+<input type="text" name="codigo" id="codigo" value="${unidade.codigo}"/>
 </div>
-<label for="endereco">Endereço</label>
+<label for="descricao">Descrição</label>
 <div class="div_texbox">
-<input type="text" name="endereco" id="endereco" value="${fornecedor.endereco}"/>
+<input type="text" name="descricao" id="descricao" value="${unidade.descricao}"/>
 </div>
-<label for="email">email</label>
-<div class="div_texbox">
-<input type="text" name="email" id="email" value="${fornecedor.email}"/>
-</div>
-<label for="bairro">Bairro</label>
-<div class="div_texbox">
-<input type="text" name="bairro" id="bairro" value="${fornecedor.bairro}"/>
-</div>	
 <div class="button_div">
 <input name="cadastrar" type="submit" value="Cadastrar" class="buttons"/>
 </div>	

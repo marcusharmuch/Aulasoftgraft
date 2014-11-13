@@ -1,4 +1,3 @@
-
 package br.com.softgraf.model.command;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,24 +24,24 @@ import br.com.softgraf.util.HibernateUtil;
  *
  * @author Usuario
  */
-public class CadastrarFornecedor implements InterfaceCommand {
+public class CadastrarUnidade implements InterfaceCommand {
 
-    public CadastrarFornecedor() {
+    public CadastrarUnidade() {
     }
     
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
-    	Fornecedor fornecedor = new Fornecedor();
+    	Unidade unidade = new Unidade();
     	
     	try {
-    		BeanUtils.populate(fornecedor, request.getParameterMap());
+    		BeanUtils.populate(unidade, request.getParameterMap());
 			
     		
-    		DAO<Fornecedor> fornecedorDao = new DAOImpl<Fornecedor>(Fornecedor.class, (Session) request.getAttribute(HibernateUtil.HIBERNATE_SESSION));
+    		DAO<Unidade> unidadeDao = new DAOImpl<Unidade>(Unidade.class, (Session) request.getAttribute(HibernateUtil.HIBERNATE_SESSION));
     		
 			
-			fornecedorDao.salvar(fornecedor);
+			unidadeDao.salvar(unidade);
 			
 			
 		} catch (IllegalAccessException e) {
@@ -56,7 +55,7 @@ public class CadastrarFornecedor implements InterfaceCommand {
     	
     	
     
-    	return "cadastra_fornecedor.jsp";
+    	return "cadastra_unidade.jsp";
     }
     
 }
